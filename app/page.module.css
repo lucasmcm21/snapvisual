@@ -50,7 +50,7 @@
 
 .headerLogo {
   width: 100%;
-  max-width: 290px;
+  max-width: 400px;
   height: auto;
   /* Permite escala proporcional preservando viewBox SVG */
   object-fit: contain;
@@ -770,9 +770,14 @@
     --section-padding: 4rem 1rem;
   }
 
+  .headerLogo {
+    max-width: 260px;
+    margin-bottom: 2rem;
+  }
+
   .hero {
-    /* Mais respiro entre o logo e a headline */
-    padding: 10rem 0 4rem;
+    /* Mais respiro entre o logo e a headline no mobile */
+    padding: 12rem 0 4rem;
   }
 
   .heroHeadline {
