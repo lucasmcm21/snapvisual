@@ -1,0 +1,39 @@
+:root {
+  --color-bg: #0A0A0A;
+  --color-text: #F5F5F5;
+  --color-text-muted: #B8B8B8;
+  --color-accent: #FF6A1A;
+  --color-accent-hover: #e05912;
+  
+  --font-heading: var(--font-league-spartan), sans-serif;
+  --font-body: var(--font-montserrat), sans-serif;
+  
+  --section-padding: 6rem 2rem;
+  --container-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
