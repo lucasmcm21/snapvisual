@@ -22,7 +22,7 @@ export default function Home() {
       <header className={styles.header}>
         <div className={`${styles.container} ${styles.headerContainer}`}>
           <div className={styles.headerLogoWrapper}>
-            <Image src="/snapvisual-logo.svg" alt="SnapVisual" width={220} height={40} className={styles.headerLogo} priority />
+            <Image src="/snapvisual-logo.svg" alt="SnapVisual" width={300} height={60} className={styles.headerLogo} priority />
           </div>
           <nav className={styles.headerNav}>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={styles.navLink}>
@@ -399,7 +399,7 @@ export default function Home() {
       <footer className={styles.footer}>
         <div className={styles.container}>
           <div className={styles.footerContainer}>
-            <Image src="/snapvisual-logo.svg" alt="SnapVisual" width={200} height={40} className={styles.footerLogo} />
+            <Image src="/snapvisual-logo.svg" alt="SnapVisual" width={420} height={84} className={styles.footerLogo} />
             <p className={styles.footerPhrase}>Visual comercial para negócios que querem parecer mais fortes no digital.</p>
             <div className={styles.footerLinks}>
               <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className={styles.footerLink}>WhatsApp</a>

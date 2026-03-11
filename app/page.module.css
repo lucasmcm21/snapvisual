@@ -56,7 +56,7 @@
 
 .headerLogo {
   width: 100%;
-  max-width: 180px;
+  max-width: 300px;
   height: auto;
   object-fit: contain;
 }
@@ -843,6 +843,13 @@
   text-align: center;
 }
 
+.footerLogo {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: contain;
+}
+
 .footerContainer {
   display: flex;
   flex-direction: column;
@@ -1011,12 +1018,21 @@
   }
 
   .headerLogo {
-    max-width: 140px;
+    max-width: 180px;
   }
 
   .headerNav {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .navText {
     display: none;
-    /* Hide nav links on mobile for ultra clean look */
+  }
+
+  .footerLogo {
+    max-width: 280px;
+    /* Reduced to ~300px bound as per user request to not break mobile (280px is perfectly safe) */
   }
 
   .hero {
