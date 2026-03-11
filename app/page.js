@@ -25,12 +25,10 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 1. HERO V2 */}
+      {/* 1. HERO V2/V3 */}
       <section className={styles.hero}>
         <div className={styles.container} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div className={styles.microLabel}>
-            <Zap size={14} /> Design Comercial Direto
-          </div>
+
 
           <h1 className={styles.heroHeadline}>
             Fim do visual amador.<br />

@@ -764,14 +764,19 @@
   border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
-/* Responsivo / Mobile Polish */
+/* Responsivo / Mobile Polish V3 Fixes */
 @media (max-width: 768px) {
   :root {
-    --section-padding: 5rem 1rem;
+    --section-padding: 4rem 1rem;
   }
 
   .hero {
-    padding: 8rem 0 5rem;
+    /* Mais respiro entre o logo e a headline */
+    padding: 10rem 0 4rem;
+  }
+
+  .heroHeadline {
+    font-size: clamp(2.5rem, 10vw, 4rem);
   }
 
   .heroActions {
@@ -786,29 +791,20 @@
 
   .diffsGrid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
+  /* Nichos em 1 Coluna (Fim do Overflow Mobile) */
   .nicheGrid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 1rem;
-    padding-bottom: 1.5rem;
-    /* Hide scrollbar */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .nicheGrid::-webkit-scrollbar {
-    display: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-bottom: 0;
   }
 
   .nicheCard {
-    min-width: 280px;
-    scroll-snap-align: center;
-    flex: 0 0 auto;
+    width: 100%;
+    min-width: unset;
   }
 
   /* Compactar a Visual Proof no Mobile */
