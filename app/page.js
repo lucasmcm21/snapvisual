@@ -18,10 +18,26 @@ export default function Home() {
     <main>
       <LeadModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
 
-      {/* HEADER SIMPLES STATIC */}
+      {/* HEADER V5 - TRUE HEADER */}
       <header className={styles.header}>
         <div className={`${styles.container} ${styles.headerContainer}`}>
-          <Image src="/snapvisual-logo.svg" alt="SnapVisual" width={400} height={120} className={styles.headerLogo} priority />
+          <div className={styles.headerLogoWrapper}>
+            <Image src="/snapvisual-logo.svg" alt="SnapVisual" width={220} height={40} className={styles.headerLogo} priority />
+          </div>
+          <nav className={styles.headerNav}>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={styles.navLink}>
+              <MessageSquare size={16} />
+              <span className={styles.navText}>WhatsApp</span>
+            </a>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className={styles.navLink}>
+              <Instagram size={16} />
+              <span className={styles.navText}>Instagram</span>
+            </a>
+            <a href={PORTFOLIO_URL} target="_blank" rel="noopener noreferrer" className={styles.navLink}>
+              <Layers size={16} />
+              <span className={styles.navText}>Portfólio</span>
+            </a>
+          </nav>
         </div>
       </header>
 
