@@ -41,7 +41,6 @@
   padding: 3.5rem 0;
   z-index: 50;
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-  /* Linha microscópica delimitando o box gordo do Hero */
 }
 
 .headerContainer {
@@ -57,8 +56,7 @@
 
 .headerLogo {
   width: 100%;
-  max-width: 260px;
-  /* Logo cresce levemente no desktop para impor respeito */
+  max-width: 180px;
   height: auto;
   object-fit: contain;
 }
@@ -84,13 +82,6 @@
 
 .navLink:hover {
   color: #fff;
-}
-
-.footerLogo {
-  width: 100%;
-  max-width: 330px;
-  height: auto;
-  object-fit: contain;
 }
 
 /* Base Buttons */
@@ -120,9 +111,15 @@
   box-shadow: 0 6px 20px rgba(255, 106, 26, 0.4);
 }
 
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
 .btnSecondary:hover {
   border-color: #555;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .btnMega {
@@ -135,9 +132,9 @@
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 15px 40px rgba(255, 106, 26, 0.5);
 }
 
-/* 1. Hero Section V2 */
+/* 1. Hero Section V4 */
 .hero {
-  padding: 16rem 0 8rem;
+  padding: 16rem 0 6rem;
   background-image: radial-gradient(circle at 50% 0%, rgba(255, 106, 26, 0.08) 0%, rgba(10, 10, 10, 0) 50%);
   position: relative;
   overflow: hidden;
@@ -149,25 +146,26 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--color-border);
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 100px;
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-accent);
   margin-bottom: 2rem;
-  box-shadow: 0 0 20px var(--color-accent-glow);
+  box-shadow: 0 0 15px rgba(255, 106, 26, 0.15);
 }
 
 .heroHeadline {
-  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-size: clamp(3rem, 7vw, 5.5rem);
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.05;
   margin-bottom: 1.5rem;
-  max-width: 1000px;
+  max-width: 900px;
   letter-spacing: -0.04em;
+  text-align: center;
 }
 
 .heroHighlight {
@@ -176,11 +174,12 @@
 }
 
 .heroSub {
-  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
   color: var(--color-text-muted);
-  max-width: 600px;
+  max-width: 700px;
   margin-bottom: 3.5rem;
   line-height: 1.6;
+  text-align: center;
 }
 
 .heroActions {
@@ -190,6 +189,14 @@
   justify-content: center;
   position: relative;
   z-index: 2;
+}
+
+.heroMicroTrust {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: #666;
+  text-transform: uppercase;
 }
 
 /* Visual Proof Hero Component V3 */
@@ -410,12 +417,10 @@
   height: 90%;
 }
 
-
-
-/* 2. Soluções Visuais (Serviços) */
+/* 2. Soluções Visuais (O que Entregamos) */
 .solutionsSection {
   background-color: var(--color-bg-deep);
-  /* Mantém distinção tática */
+  border-bottom: 1px solid var(--color-border);
 }
 
 .solutionsGrid {
@@ -433,12 +438,25 @@
   position: relative;
   transition: all 0.3s ease;
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.solutionCardPrimary {
+  border-color: rgba(255, 106, 26, 0.3);
+  background: linear-gradient(180deg, #111 0%, #0a0a0c 100%);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 10px 30px rgba(255, 106, 26, 0.05);
 }
 
 .solutionCard:hover {
   transform: translateY(-4px);
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08), 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.solutionCardPrimary:hover {
+  border-color: rgba(255, 106, 26, 0.5);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08), 0 15px 40px rgba(255, 106, 26, 0.15);
 }
 
 .solutionIconWrapper {
@@ -449,14 +467,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   border: 1px solid var(--color-border-hover);
   color: var(--color-accent);
 }
 
+.solutionCardPrimary .solutionIconWrapper {
+  background: rgba(255, 106, 26, 0.1);
+  border-color: rgba(255, 106, 26, 0.3);
+}
+
 .solutionTitle {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.solutionSubline {
+  font-size: 1.05rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
 .solutionProblem {
@@ -465,52 +496,182 @@
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--color-border);
+  line-height: 1.6;
 }
 
 .solutionDelivery {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+  flex-grow: 1;
 }
 
 .deliveryItem {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
   font-size: 0.95rem;
-  font-weight: 500;
+  color: #ccc;
+  line-height: 1.4;
 }
 
 .deliveryItem svg {
   color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-/* 3. Nichos / Especializações V3 */
-.nicheSection {
+.solutionTag {
+  display: inline-table;
+  align-self: flex-start;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  color: #888;
+  font-weight: 600;
+}
+
+/* 2.5 Portfolio Grid (Bento Box V5) */
+.portfolioSection {
   background-color: var(--color-bg);
-  position: relative;
+  border-bottom: 1px solid var(--color-border);
 }
 
-/* Horizontal Scroll setup for Mobile -> Grid for Desktop */
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+  grid-auto-flow: dense;
+}
+
+.portfolioItem {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.portfolioItemTall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.portfolioItemWide {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.portfolioItemSquare {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.portfolioItem:hover {
+  transform: translateY(-5px);
+}
+
+.portfolioItem:hover .portfolioImageWrapper {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.portfolioImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: unset;
+  /* Let the height dictate or use specific aspect-ratios */
+  background-color: #0c0c0e;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+  min-height: 280px;
+  /* Base min height */
+}
+
+.portfolioItemSquare .portfolioImageWrapper {
+  aspect-ratio: 1 / 1;
+  min-height: auto;
+}
+
+.portfolioItemWide .portfolioImageWrapper {
+  aspect-ratio: 16 / 9;
+  min-height: auto;
+}
+
+.portfolioItemTall .portfolioImageWrapper {
+  aspect-ratio: 9 / 13;
+  height: auto;
+  min-height: unset;
+}
+
+.portfolioImg {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.imgCoverTop {
+  object-fit: cover !important;
+  object-position: top center !important;
+}
+
+.imgContain {
+  object-fit: contain !important;
+  object-position: center !important;
+  padding: 1rem;
+  /* slight padding for contain so it doesn't touch the edges */
+}
+
+.portfolioItem:hover .portfolioImg {
+  transform: scale(1.03);
+}
+
+.portfolioCaption {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* 3. Nichos / Especializações V4 */
+.nicheSection {
+  background-color: #08080a;
+  position: relative;
+  border-bottom: 1px solid var(--color-border);
+}
+
 .nicheGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .nicheCard {
-  background: #08080a;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 2rem;
+  background: #0d0d12;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2.5rem 2rem;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
+  transition: background 0.3s ease;
+}
+
+.nicheCard:hover {
+  background: #111118;
 }
 
 .nicheTitle {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: #fff;
   font-weight: 700;
   margin-bottom: 0.25rem;
@@ -519,7 +680,8 @@
 .nicheCompare {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 1rem;
+  flex-grow: 1;
 }
 
 .nicheBefore,
@@ -529,7 +691,7 @@
 }
 
 .nicheBefore {
-  color: #777;
+  color: #666;
 }
 
 .nicheBefore span {
@@ -537,12 +699,13 @@
   font-weight: 700;
   margin-right: 6px;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   letter-spacing: 0.05em;
 }
 
 .nicheAfter {
-  color: #ddd;
+  color: #eee;
+  font-weight: 500;
 }
 
 .nicheAfter span {
@@ -550,13 +713,24 @@
   font-weight: 700;
   margin-right: 6px;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   letter-spacing: 0.05em;
 }
 
-/* 4. Diferenciais Curtos V3 */
+.nicheTags {
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* 4. Diferenciais Curtos V4 */
 .diffsSection {
-  background-color: #050505;
+  background-color: var(--color-bg);
 }
 
 .diffsGrid {
@@ -570,7 +744,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  border-top: 2px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding-top: 2.5rem;
 }
 
@@ -578,36 +752,66 @@
   color: var(--color-accent);
   width: 40px;
   height: 40px;
-  filter: drop-shadow(0 0 10px rgba(255, 106, 26, 0.4));
+  filter: drop-shadow(0 0 10px rgba(255, 106, 26, 0.2));
 }
 
 .diffContent h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #fff;
   letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
 }
 
 .diffContent p {
-  color: #888;
-  font-size: 1.05rem;
+  color: #999;
+  font-size: 1rem;
   line-height: 1.6;
 }
+
+/* 4.5 Transição Seca */
+.transitionSection {
+  background-color: var(--color-bg-deep);
+  border-top: 1px solid var(--color-border);
+  padding: 6rem 0;
+}
+
+.transitionBox {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.transitionTitle {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.transitionText {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #888;
+}
+
 
 /* 5. CTA Final & Microgarantias */
 .ctaSection {
   text-align: center;
   padding: 10rem 2rem;
-  background: radial-gradient(circle at center bottom, var(--color-bg-card) 0%, var(--color-bg) 70%);
+  background: radial-gradient(circle at center bottom, rgba(255, 106, 26, 0.05) 0%, var(--color-bg) 60%);
   border-top: 1px solid var(--color-border);
   position: relative;
 }
 
 .ctaHeadline {
   font-size: clamp(2.5rem, 6vw, 4rem);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
   line-height: 1.1;
   max-width: 800px;
   margin-inline: auto;
+  letter-spacing: -0.03em;
 }
 
 .guarantees {
@@ -622,7 +826,8 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: var(--color-text-muted);
 }
 
@@ -630,14 +835,11 @@
   color: #4ade80;
 }
 
-/* Subtle Green for trust */
-
-
 /* FOOTER */
 .footer {
   padding: 4rem 2rem;
   border-top: 1px solid var(--color-border);
-  background-color: var(--color-bg-deep);
+  background-color: #030303;
   text-align: center;
 }
 
@@ -645,7 +847,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+}
+
+.footerPhrase {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
 }
 
 .footerLinks {
@@ -656,12 +864,15 @@
 
 .footerLink {
   color: var(--color-text-muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   transition: color 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .footerLink:hover {
-  color: var(--color-text);
+  color: #fff;
 }
 
 
@@ -789,7 +1000,7 @@
   border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
-/* Responsivo / Mobile Polish V3 Fixes */
+/* Responsivo / Mobile Polish V4 */
 @media (max-width: 768px) {
   :root {
     --section-padding: 4rem 1rem;
@@ -801,35 +1012,47 @@
 
   .headerLogo {
     max-width: 140px;
-    margin-bottom: 0;
   }
 
   .headerNav {
-    gap: 1.25rem;
-  }
-
-  .navText {
     display: none;
-    /* Cortar as palavras e deixar só os botões/icons limpos */
+    /* Hide nav links on mobile for ultra clean look */
   }
 
   .hero {
-    /* Novo respiro entre o Header Isolado e a Hero (Headline) */
-    padding: 8rem 0 4rem;
+    padding: 10rem 0 4rem;
   }
 
   .heroHeadline {
-    font-size: clamp(2.5rem, 10vw, 4rem);
+    font-size: 2.5rem;
   }
 
-  .heroActions {
-    flex-direction: column;
-    width: 100%;
-    padding: 0 1rem;
+  .heroSub {
+    font-size: 1rem;
   }
 
   .btn {
     width: 100%;
+    padding: 1rem;
+  }
+
+  .proofCardBrand {
+    display: none;
+    /* Simplify UI in mobile to just two visual cards */
+  }
+
+  .heroProof {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .proofCard {
+    transform: none !important;
+  }
+
+  .solutionsGrid {
+    grid-template-columns: 1fr;
   }
 
   .diffsGrid {
@@ -837,22 +1060,43 @@
     gap: 2.5rem;
   }
 
-  /* Nichos em 1 Coluna (Fim do Overflow Mobile) */
   .nicheGrid {
-    display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding-bottom: 0;
   }
 
-  .nicheCard {
-    width: 100%;
-    min-width: unset;
+  .portfolioGrid {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* Compactar a Visual Proof no Mobile */
-  .heroProof {
-    display: none;
-    /* Em telas muito pequenas o grid de 3 quebra. Desliga pro mobile manter secão limpa e direta. */
+  .portfolioItem {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  .portfolioItemTall .portfolioImageWrapper {
+    aspect-ratio: 4 / 5;
+    height: auto;
+    min-height: 400px;
+  }
+
+  .portfolioItemWide .portfolioImageWrapper {
+    aspect-ratio: 4 / 3;
+    height: auto;
+  }
+
+  .modalContent {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
