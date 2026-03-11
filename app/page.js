@@ -1,160 +1,293 @@
-import styles from './page.module.css'
-import LeadForm from '@/components/LeadForm'
-import { CheckCircle2, Zap, LayoutTemplate, MessageSquare, Instagram, LayoutDashboard, Send } from 'lucide-react'
+'use client'
 
-// Placeholders conforme solicitado
-const PORTFOLIO_URL = '#'
-const INSTAGRAM_URL = '#'
-const WHATSAPP_URL = '#'
+import { useState } from 'react'
+import Image from 'next/image'
+import styles from './page.module.css'
+import LeadModal from '@/components/LeadModal'
+import { CheckCircle2, Zap, LayoutTemplate, MessageSquare, Instagram, Edit3, Smartphone, PenTool, Layers, ArrowRight, LayoutDashboard } from 'lucide-react'
+
+// Links Originais Puxados
+const PORTFOLIO_URL = 'https://www.behance.net/lucasmouraocm'
+const INSTAGRAM_URL = 'http://instagram.com/snapvisual.design'
+const WHATSAPP_URL = 'http://wa.me/86981308653'
 
 export default function Home() {
+  const [isModalOpen, setModalOpen] = useState(false)
+
   return (
     <main>
-      {/* 1. HERO */}
+      <LeadModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+
+      {/* HEADER SIMPLES STATIC */}
+      <header className={styles.header}>
+        <div className={`${styles.container} ${styles.headerContainer}`}>
+          <Image src="/snapvisual-logo.svg" alt="SnapVisual" width={400} height={120} className={styles.headerLogo} priority />
+        </div>
+      </header>
+
+      {/* 1. HERO V2 */}
       <section className={styles.hero}>
-        <h1 className={styles.heroHeadline}>
-          Fim do visual amador. <br />
-          <span className={styles.heroHighlight}>Sua marca pronta para vender.</span>
-        </h1>
-        <p className={styles.heroSub}>
-          Nós somos a Snap Visual: ajudamos pequenos negócios a se destacarem no digital com soluções visuais simples, rápidas e comerciais.
-        </p>
-        <div className={styles.heroActions}>
-          <a href={WHATSAPP_URL} className={`${styles.btn} ${styles.btnPrimary}`}>
-            Falar pelo WhatsApp
-          </a>
-          <a href={PORTFOLIO_URL} className={`${styles.btn} ${styles.btnSecondary}`}>
-            Ver Trabalhos Anteriores
-          </a>
-        </div>
-      </section>
+        <div className={styles.container} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div className={styles.microLabel}>
+            <Zap size={14} /> Design Comercial Direto
+          </div>
 
-      {/* 2. O QUE A SNAP VISUAL FAZ */}
-      <section className={`${styles.section} ${styles.container}`} id="servicos">
-        <div className={styles.textCenter}>
-          <h2 className={styles.title}>O que nós entregamos</h2>
-          <p className={styles.subtitle}>
-            Chega de templates genéricos ou depender de agências imprevisíveis. Desenvolvemos materiais que dão resultado com foco em empresas locais.
+          <h1 className={styles.heroHeadline}>
+            Fim do visual amador.<br />
+            <span className={styles.heroHighlight}>Sua marca pronta para vender.</span>
+          </h1>
+
+          <p className={styles.heroSub}>
+            Visual moderno, direto e bem resolvido para quem precisa atrair cliente novo todo dia, sem cara de template barato e sem o custo de uma agência inflada.
           </p>
-        </div>
-        <div className={styles.servicesGrid}>
-          <div className={styles.serviceCard}>
-            <Instagram className={styles.serviceIcon} size={40} />
-            <h3 className={styles.serviceTitle}>Posts e Reels</h3>
-            <p className={styles.serviceDesc}>Artes atrativas e comerciais para o Instagram e edições de vídeos curtos pensadas para engajar clientes de forma rápida.</p>
+
+          <div className={styles.heroActions}>
+            <button onClick={() => setModalOpen(true)} className={`${styles.btn} ${styles.btnPrimary}`}>
+              Iniciar Conversa no WhatsApp
+            </button>
+            <a href={PORTFOLIO_URL} target="_blank" rel="noreferrer" className={`${styles.btn} ${styles.btnSecondary}`}>
+              Ver Nossos Trabalhos
+            </a>
           </div>
-          <div className={styles.serviceCard}>
-            <LayoutDashboard className={styles.serviceIcon} size={40} />
-            <h3 className={styles.serviceTitle}>Materiais Rápidos</h3>
-            <p className={styles.serviceDesc}>Avisos, cardápios, convites e peças promocionais diagramadas de modo limpo e focado na legibilidade.</p>
+
+          {/* SIMULAÇÃO DE PROVA VISUAL EM CSS (HeroProof V3) */}
+          <div className={styles.heroProof}>
+            {/* Mock: Post Style */}
+            <div className={`${styles.proofCard} ${styles.proofCardPost}`}>
+              <div className={styles.proofHeader}>
+                <div className={styles.proofAvatar}></div>
+                <div className={styles.proofUserHolder}>
+                  <div className={styles.proofUserName}></div>
+                  <div className={styles.proofUserSub}></div>
+                </div>
+              </div>
+              <div className={styles.proofBodyPost}>
+                <div className={styles.proofImagePlaceholder}>
+                  <span>NEW CAMPAIGN</span>
+                </div>
+                <div className={styles.proofPostLines}>
+                  <div className={styles.mockLine}></div>
+                  <div className={`${styles.mockLine} ${styles.short}`}></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mock: Brand Box */}
+            <div className={`${styles.proofCard} ${styles.proofCardBrand}`}>
+              <div className={styles.proofBrandCenter}>
+                <div className={styles.proofBrandLogo}><Zap size={32} /></div>
+                <div className={styles.proofBrandTitle}>Vanguard</div>
+                <div className={styles.proofBrandTags}>
+                  <span>Identity</span>
+                  <span>UI/UX</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Mock: UI Card */}
+            <div className={`${styles.proofCard} ${styles.proofCardUI}`}>
+              <div className={styles.proofUIHeader}>
+                <h3>Dashboard</h3>
+                <div className={styles.proofUIBadge}>Active</div>
+              </div>
+              <div className={styles.proofUIGraph}>
+                <div className={styles.bar1}></div>
+                <div className={styles.bar2}></div>
+                <div className={styles.bar3}></div>
+                <div className={styles.bar4}></div>
+              </div>
+            </div>
           </div>
-          <div className={styles.serviceCard}>
-            <LayoutTemplate className={styles.serviceIcon} size={40} />
-            <h3 className={styles.serviceTitle}>Landing Pages</h3>
-            <p className={styles.serviceDesc}>Sua página focada em converter visitantes. Sem distrações, com carregamento rápido e voltada direto para as vendas.</p>
-          </div>
+
         </div>
       </section>
 
-      {/* 3. PARA QUEM É */}
-      <section className={`${styles.section} ${styles.audienceSection}`}>
-        <div className={`${styles.container} ${styles.textCenter}`}>
-          <h2 className={styles.title}>Feito para Negócios Locais</h2>
-          <p className={styles.subtitle}>
-            Entendemos as dores e velocidades do seu dia a dia. Chegamos para ser um parceiro ágil.
-          </p>
-          <div className={styles.audienceTags}>
-            <span className={styles.audienceTag}>Restaurantes</span>
-            <span className={styles.audienceTag}>Hamburguerias</span>
-            <span className={styles.audienceTag}>Lojas</span>
-            <span className={styles.audienceTag}>Barbearias</span>
-            <span className={styles.audienceTag}>Serviços Locais</span>
-            <span className={styles.audienceTag}>Microempreendedores</span>
-            <span className={styles.audienceTag}>Negócios de Bairro</span>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. DIFERENCIAIS */}
-      <section className={`${styles.section} ${styles.container}`}>
-        <div className={styles.textCenter}>
-          <h2 className={styles.title}>Por que escolher a Snap Visual?</h2>
-          <p className={styles.subtitle}>
-            Não somos uma agência corporativa cheia de reuniões teóricas. Somos práticos, entregando o valor real diretamente para a sua vitrine digital.
-          </p>
-        </div>
-        <div className={styles.diffsGrid}>
-          <div className={styles.diffItem}>
-            <Zap className={styles.diffIcon} size={32} />
-            <div className={styles.diffContent}>
-              <h3>Agilidade na Entrega</h3>
-              <p>Trabalhamos em um formato rápido para que sua atuação não perca o momento comercial, acelerando suas vendas.</p>
-            </div>
-          </div>
-          <div className={styles.diffItem}>
-            <CheckCircle2 className={styles.diffIcon} size={32} />
-            <div className={styles.diffContent}>
-              <h3>Clareza Funcional</h3>
-              <p>Uma comunicação visual 100% focada em leitura e legibilidade para quem não tem tempo a perder na tela do celular.</p>
-            </div>
-          </div>
-          <div className={styles.diffItem}>
-            <MessageSquare className={styles.diffIcon} size={32} />
-            <div className={styles.diffContent}>
-              <h3>Apoio sem Burocracia</h3>
-              <p>O atendimento é prático e direto. Nós evitamos jargões para resolver o que sua rede social e sua marca de fato demandam da forma mais leve possível.</p>
-            </div>
-          </div>
-          <div className={styles.diffItem}>
-            <Send className={styles.diffIcon} size={32} />
-            <div className={styles.diffContent}>
-              <h3>Estética Comercial</h3>
-              <p>O foco não é produzir uma arte que pareça conceitual ou experimental, é ter um posicionamento que transmita qualidade e convide ao consumo.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. FORMULÁRIO DE INTERESSE */}
-      <section className={`${styles.section} ${styles.formSection}`} id="contato">
+      {/* 2. SOLUÇÕES (Ex-Serviços) */}
+      <section className={`${styles.section} ${styles.solutionsSection}`} id="solucoes">
         <div className={styles.container}>
           <div className={styles.textCenter}>
-            <h2 className={styles.title}>Vamos melhorar o seu visual?</h2>
-            <p className={styles.subtitle} style={{ marginBottom: '2rem' }}>
-              Deixe suas informações. Faremos contato sem complicações para propor a solução certa.
+            <h2 className={styles.title}>O que sua marca precisa para parecer pronta</h2>
+            <p className={styles.subtitle}>
+              Entregas visuais diretas para negócios que buscam velocidade, legibilidade e presença.
             </p>
           </div>
-          <LeadForm />
+
+          <div className={styles.solutionsGrid}>
+            <div className={styles.solutionCard}>
+              <div className={styles.solutionIconWrapper}>
+                <Smartphone size={24} />
+              </div>
+              <h3 className={styles.solutionTitle}>Posts Magnéticos</h3>
+              <p className={styles.solutionProblem}>
+                Problema: Feed que parece panfleto barato e não engaja.
+              </p>
+              <div className={styles.solutionDelivery}>
+                <div className={styles.deliveryItem}><CheckCircle2 size={16} /> Linha criativa autoral</div>
+                <div className={styles.deliveryItem}><CheckCircle2 size={16} /> Alto contraste e legibilidade</div>
+                <div className={styles.deliveryItem}><CheckCircle2 size={16} /> Foco absoluto na sua oferta</div>
+              </div>
+            </div>
+
+            <div className={styles.solutionCard}>
+              <div className={styles.solutionIconWrapper}>
+                <Layers size={24} />
+              </div>
+              <h3 className={styles.solutionTitle}>Landing Pages Comerciais</h3>
+              <p className={styles.solutionProblem}>
+                Problema: Perder venda porque o cliente não entende o que você vende.
+              </p>
+              <div className={styles.solutionDelivery}>
+                <div className={styles.deliveryItem}><CheckCircle2 size={16} /> Design que carrega rápido</div>
+                <div className={styles.deliveryItem}><CheckCircle2 size={16} /> Copy desenhada para venda direta</div>
+                <div className={styles.deliveryItem}><CheckCircle2 size={16} /> Captação de leads inteligente</div>
+              </div>
+            </div>
+
+            <div className={styles.solutionCard}>
+              <div className={styles.solutionIconWrapper}>
+                <Edit3 size={24} />
+              </div>
+              <h3 className={styles.solutionTitle}>Identidade Visual Tática</h3>
+              <p className={styles.solutionProblem}>
+                Problema: Logotipo confuso e paleta de cores misturada sem sentido.
+              </p>
+              <div className={styles.solutionDelivery}>
+                <div className={styles.deliveryItem}><CheckCircle2 size={16} /> Marca forte e memorável</div>
+                <div className={styles.deliveryItem}><CheckCircle2 size={16} /> Estética adaptada para o digital</div>
+                <div className={styles.deliveryItem}><CheckCircle2 size={16} /> Manual ágil para o dia a dia</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 6. CHAMADA FINAL */}
+      {/* 3. NICHOS (Para a Rotina Real) */}
+      <section className={`${styles.section} ${styles.nicheSection}`}>
+        <div className={styles.container}>
+          <div className={styles.textCenter}>
+            <h2 className={styles.title}>Pensado para o ritmo do negócio local</h2>
+            <p className={styles.subtitle}>
+              A SnapVisual funciona melhor onde a imagem precisa vender rápido. Desenhamos para quem vive a rotina de verdade.
+            </p>
+          </div>
+
+          <div className={styles.nicheGrid}>
+            <div className={styles.nicheCard}>
+              <h3 className={styles.nicheTitle}>Alimentação & Delivery</h3>
+              <div className={styles.nicheCompare}>
+                <div className={styles.nicheBefore}><span>Antes:</span> Fotos escuras, zero apetite visual.</div>
+                <div className={styles.nicheAfter}><span>Depois:</span> Direção de arte que vende antes da mordida.</div>
+              </div>
+            </div>
+
+            <div className={styles.nicheCard}>
+              <h3 className={styles.nicheTitle}>Barbearias & Estética</h3>
+              <div className={styles.nicheCompare}>
+                <div className={styles.nicheBefore}><span>Antes:</span> Feed bagunçado e sem padrão.</div>
+                <div className={styles.nicheAfter}><span>Depois:</span> Estética premium que justifica o preço do serviço.</div>
+              </div>
+            </div>
+
+            <div className={styles.nicheCard}>
+              <h3 className={styles.nicheTitle}>Lojas & Varejo</h3>
+              <div className={styles.nicheCompare}>
+                <div className={styles.nicheBefore}><span>Antes:</span> Promoção poluída que ninguém clica.</div>
+                <div className={styles.nicheAfter}><span>Depois:</span> Design focado totalmente em acelerar conversão.</div>
+              </div>
+            </div>
+
+            <div className={styles.nicheCard}>
+              <h3 className={styles.nicheTitle}>Serviços Locais</h3>
+              <div className={styles.nicheCompare}>
+                <div className={styles.nicheBefore}><span>Antes:</span> Perfil corporativo amador e genérico.</div>
+                <div className={styles.nicheAfter}><span>Depois:</span> Posicionamento que anula a autoridade do concorrente.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. DIFERENCIAIS (Secos e Fortes) */}
+      <section className={`${styles.section} ${styles.diffsSection}`}>
+        <div className={styles.container}>
+          <div className={styles.textCenter}>
+            <h2 className={styles.title}>Mais resultado. Menos enrolação.</h2>
+          </div>
+          <div className={styles.diffsGrid}>
+            <div className={styles.diffItem}>
+              <Zap className={styles.diffIcon} size={28} />
+              <div className={styles.diffContent}>
+                <h3>Resposta Rápida</h3>
+                <p>Nenhuma mensagem fica dias sem resposta. A rotina do seu negócio não pode parar por causa de uma arte atrasada.</p>
+              </div>
+            </div>
+            <div className={styles.diffItem}>
+              <PenTool className={styles.diffIcon} size={28} />
+              <div className={styles.diffContent}>
+                <h3>Visual que Vende</h3>
+                <p>O foco não é produzir uma tela de pintura, é ter um posicionamento que transmita qualidade e convide diretamente à conversão.</p>
+              </div>
+            </div>
+            <div className={styles.diffItem}>
+              <MessageSquare className={styles.diffIcon} size={28} />
+              <div className={styles.diffContent}>
+                <h3>Atendimento Direto</h3>
+                <p>Evitamos burocracia, termos técnicos e fluxos engessados. Você diz o que precisa, nós direcionamos a melhor solução visual para aquilo.</p>
+              </div>
+            </div>
+            <div className={styles.diffItem}>
+              <LayoutDashboard className={styles.diffIcon} size={28} />
+              <div className={styles.diffContent}>
+                <h3>Feito para a Rotina</h3>
+                <p>Sabemos que o lojista e o empresário fazem do financeiro ao marketing. Entregamos os arquivos prontos, nos formatos corretos e mastigados para uso próprio.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. CTA FINAL */}
       <section className={styles.ctaSection}>
         <div className={styles.container}>
           <h2 className={styles.ctaHeadline}>
-            Seu negócio precisa e merece uma <br />
-            <span className={styles.heroHighlight}>marca atrativa e confiante.</span>
+            Seu próximo visual pode começar aqui.
           </h2>
-          <a href={WHATSAPP_URL} className={`${styles.btn} ${styles.btnPrimary}`}>
-            Iniciar nossa conversa agora
-          </a>
+          <p className={styles.subtitle} style={{ margin: '0 auto 3rem auto' }}>
+            Você envia o básico. A SnapVisual entende a demanda e volta com o caminho mais direto para resolver.
+          </p>
+
+          <button onClick={() => setModalOpen(true)} className={`${styles.btn} ${styles.btnPrimary} ${styles.btnMega}`}>
+            Quero melhorar minha marca
+          </button>
+
+          <div className={styles.guarantees}>
+            <span className={styles.guaranteeItem}>
+              <CheckCircle2 size={16} /> Resposta em poucas horas
+            </span>
+            <span className={styles.guaranteeItem}>
+              <CheckCircle2 size={16} /> Atendimento sem robôs
+            </span>
+            <span className={styles.guaranteeItem}>
+              <CheckCircle2 size={16} /> Orçamento sem compromisso
+            </span>
+          </div>
         </div>
       </section>
 
-      {/* 7. RODAPÉ */}
+      {/* FOOTER */}
       <footer className={styles.footer}>
         <div className={styles.container}>
-          <div className={styles.footerBrand}>
-            S<span>V</span> SNAPVISUAL
+          <div className={styles.footerContainer}>
+            <Image src="/snapvisual-logo.svg" alt="SnapVisual" width={400} height={120} className={styles.footerLogo} />
+            <div className={styles.footerLinks}>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className={styles.footerLink}>Instagram</a>
+              <a href={PORTFOLIO_URL} target="_blank" rel="noreferrer" className={styles.footerLink}>Behance</a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className={styles.footerLink}>Fale Conosco</a>
+            </div>
+            <p style={{ color: '#666', fontSize: '0.85rem' }}>
+              &copy; {new Date().getFullYear()} SnapVisual. Desenvolvido para marcas fortes.
+            </p>
           </div>
-          <div className={styles.footerLinks}>
-            <a href={INSTAGRAM_URL} className={styles.footerLink}>Instagram</a>
-            <a href={PORTFOLIO_URL} className={styles.footerLink}>Portfólio</a>
-            <a href={WHATSAPP_URL} className={styles.footerLink}>Fale Conosco</a>
-          </div>
-          <p className={styles.footerCopy}>
-            &copy; {new Date().getFullYear()} Snap Visual. Todos os direitos reservados.
-          </p>
         </div>
       </footer>
     </main>

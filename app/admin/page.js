@@ -14,7 +14,7 @@ export default async function AdminPage() {
                 <h1>Erro ao carregar leads</h1>
                 <p>{error.message}</p>
                 <p style={{ marginTop: '1rem', fontSize: '14px', color: '#666' }}>
-                    * Certifique-se de que a tabela "leads" existe no seu projeto Supabase, com as colunas: id, created_at, nome, contato, negocio, necessidade.
+                    * Certifique-se de que a tabela &quot;leads&quot; existe no seu projeto Supabase, com as colunas: id, created_at, nome, contato, negocio, necessidade.
                 </p>
             </div>
         )

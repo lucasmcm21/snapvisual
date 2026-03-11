@@ -1,14 +1,22 @@
 :root {
+  /* Cores V2 - Minimalismo Premium */
   --color-bg: #0A0A0A;
-  --color-text: #F5F5F5;
-  --color-text-muted: #B8B8B8;
+  --color-bg-deep: #050505;
+  --color-bg-card: #0F0F0F;
+  --color-border: #1A1A1A;
+  --color-border-hover: #333333;
+
+  --color-text: #FFFFFF;
+  --color-text-muted: #A1A1AA;
+
   --color-accent: #FF6A1A;
-  --color-accent-hover: #e05912;
-  
+  --color-accent-hover: #E55C14;
+  --color-accent-glow: rgba(255, 106, 26, 0.15);
+
   --font-heading: var(--font-league-spartan), sans-serif;
   --font-body: var(--font-montserrat), sans-serif;
-  
-  --section-padding: 6rem 2rem;
+
+  --section-padding: 8rem 2rem;
   --container-width: 1200px;
 }
 
@@ -26,14 +34,44 @@ body {
   color: var(--color-text);
   font-family: var(--font-body);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
-  line-height: 1.2;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
